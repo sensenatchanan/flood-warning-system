@@ -23,7 +23,7 @@ def run():
             print("Station name and current level: {}, {}".format(
                 station.name, station.latest_level))
 
-    # Alternative implementation
+    # Alternative implemention
     # for station in [s for s in stations if s.name in names]:
     #     print("Station name and current level: {}, {}".format(station.name,
     #                                                           station.latest_level))

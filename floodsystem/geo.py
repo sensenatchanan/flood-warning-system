@@ -26,3 +26,7 @@ def stations_within_radius(stations, centre, r):
         if distance <= r:
             output.append(station)
     return output
+
+def rivers_with_stations(stations):
+    output = set((s.river) for (s) in stations)
+    return output

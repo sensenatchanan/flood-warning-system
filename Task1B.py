@@ -10,7 +10,7 @@ def run():
     stations = geo.stations_by_distance(stationdata.build_station_list(), (52.2053, 0.1218))
     results = [(s.name, s.town, distance) for (s, distance) in stations]
     print("10 closest stations from Cambridge: \n", results[:10])
-    print("\n10furthest stations from Cambridge: \n", results[-10:])
+    print("\n10 furthest stations from Cambridge: \n", results[-10:])
 
 
 if __name__ == "__main__":

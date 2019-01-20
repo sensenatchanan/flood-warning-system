@@ -9,8 +9,8 @@ def run():
     """Requirements for Task 1B"""
     stations = geo.stations_by_distance(stationdata.build_station_list(), (52.2053, 0.1218))
     results = [(s.name, s.town, distance) for (s, distance) in stations]
-    print(results[:10])
-    print(results[-10:])
+    print("10 closest stations from Cambridge: \n", results[:10])
+    print("\n10furthest stations from Cambridge: \n", results[-10:])
 
 
 if __name__ == "__main__":

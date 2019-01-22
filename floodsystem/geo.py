@@ -28,10 +28,12 @@ def stations_within_radius(stations, centre, r):
     return output
 
 def rivers_with_stations(stations):
+    """function that outputs all rivers with a monitoring station as a set """
     output = set((s.river) for (s) in stations)
     return output
 
 def stations_by_river(stations):
+    """function that creates a dictionary for each river and its corresponding stations"""
     results = [[s.river, s.name] for (s) in stations]
     rivers = {}
     for (river, station) in results:

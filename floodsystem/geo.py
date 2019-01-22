@@ -32,10 +32,11 @@ def rivers_with_stations(stations):
     return output
 
 def stations_by_river(stations):
-   #rivers = set((s.river) for (s) in stations)
-    #data = set(((s.river),(s.name)) for (s) in stations)
     results = [[s.river, s.name] for (s) in stations]
-
-
-    #d = {(s.river):(s.name) for (s) in stations}
-    return results
+    rivers = {}
+    for (river, station) in results:
+        if river in rivers:
+            rivers[river].append(station)
+        else:
+            rivers[river] = [station]
+    return rivers

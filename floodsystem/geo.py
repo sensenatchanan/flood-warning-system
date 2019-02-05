@@ -10,7 +10,12 @@ from .utils import sorted_by_key  # noqa
 from haversine import haversine
 
 def stations_by_distance(stations, p):
-    """ Function that calculates the distance from the stations to a point and sorts them """
+    """ Function that calculates the distance from the stations to a point and sorts them
+    Inputs:
+        stations : list of MonitoringStation objects
+        p : coordinate centre
+    Outputs:
+        list of MonitoringStation objects sorted by distance"""
     result = []
     for station in stations:
         distance = haversine(p, station.coord)
@@ -29,14 +34,14 @@ def stations_within_radius(stations, centre, r):
 
 def rivers_with_stations(stations):
     """function that outputs all rivers with a monitoring station as a set """
-    output = set((s.river) for (s) in stations)
+    output = set([s.river for s in stations])
     return output
 
 def stations_by_river(stations):
     """function that creates a dictionary for each river and its corresponding stations"""
-    results = [[s.river, s.name] for (s) in stations]
+    results = [[s.river, s.name] for s in stations]
     rivers = {}
-    for (river, station) in results:
+    for river, station in results:
         if river in rivers:
             rivers[river].append(station)
         else:
@@ -51,7 +56,7 @@ def rivers_by_station_number(stations, N):
         river_station_numbers.append((river, len(rivers[river])))
     station_sort = sorted_by_key(river_station_numbers, 1, reverse = True)
     
-    while station_sort[N][1] == station_sort[N+1][1] and N <= len(station_sort):
+    while station_sort[N-1][1] == station_sort[N][1] and N <= len(station_sort):
         N += 1
     return station_sort[:N]
 

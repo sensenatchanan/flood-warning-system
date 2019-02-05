@@ -2,7 +2,7 @@ from floodsystem import geo, stationdata
 
 
 def run():
-    output = geo.rivers_by_station_number(stationdata.build_station_list(), N=9)
+    output = geo.rivers_by_station_number(stationdata.build_station_list(), N=5)
     print(output)
 
 if __name__ == "__main__":

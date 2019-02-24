@@ -42,6 +42,16 @@ class MonitoringStation:
         """method returns false if typical range data is inconsistent"""
         return not (self.typical_range is None or (self.typical_range[1] < self.typical_range[0]))
 
+    def relative_water_level(self):
+        """method that returns the latest water levels as a fraction of its typical range"""
+        if self.typical_range is None or (self.typical_range[1] < self.typical_range[0]) or self.latest_level is None:
+            return None
+        else:
+            height_range = self.typical_range[1] - self.typical_range[0]
+            return (self.latest_level - self.typical_range[0])/height_range
+
+
+
 def inconsistent_typical_range_stations(stations):
     """function which returns a list of all stations with inconsistent range data"""
     inconsistent_stations = []

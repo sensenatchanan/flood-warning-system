@@ -1,4 +1,3 @@
-
 from floodsystem import flood, stationdata
 
 def run():
@@ -6,10 +5,9 @@ def run():
     stations = stationdata.build_station_list()
     # Update latest level data for all stations
     stationdata.update_water_levels(stations)
-    print (flood.stations_level_over_threshold(stations, 0.8))
+    print (flood.stations_highest_rel_level(stations, 10))
 
 
 if __name__ == "__main__":
-    print("*** Task 2B: CUED Part IA Flood Warning System ***")
+    print("*** Task 2C: CUED Part IA Flood Warning System ***")
     run()
-

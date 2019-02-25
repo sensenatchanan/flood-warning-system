@@ -60,3 +60,12 @@ def rivers_by_station_number(stations, N):
         N += 1
     return station_sort[:N]
 
+def stations_by_town(stations):
+    """This function maps river names to a list of stations on a given river"""
+    dict = {}
+    for s in stations:
+        if s.town not in dict:
+            dict[s.town]=[s]
+        elif s.town in dict:
+            dict[s.town] += [s]
+    return dict
